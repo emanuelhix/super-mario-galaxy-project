@@ -1,0 +1,10 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1697154185
+CharacterBody2D.gd::GDScript::-1::1697149766::0::1::::<>CharacterBody2D<>::
+Gnu-global-logo.png::CompressedTexture2D::3650526644077035794::1697132030::1697132030::1::::<><>::
+icon.svg::CompressedTexture2D::6031994978248530372::1697130420::1697130425::1::::<><>::
+Main.tscn::PackedScene::4225773028866265299::1697153802::0::1::::<><>::uid://cr67ct4l5srk3::::res://icon.svg<>res://PlanetGravity.gd<>uid://dsmnknnsaojko::::res://white_circle.png<>res://CharacterBody2D.gd
+PlanetGravity.gd::GDScript::-1::1697153729::0::1::::<>StaticBody2D<>::
+white_circle.png::CompressedTexture2D::8448241652162024310::1697132233::1697132239::1::::<><>::
+::res://mario-galaxy-sample-project/::1697153914
+README.md::TextFile::-1::1697154019::0::1::::<><>::

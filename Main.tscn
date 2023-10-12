@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://b1g84nicq5ipf"]
+
+[ext_resource type="Texture2D" uid="uid://cr67ct4l5srk3" path="res://icon.svg" id="1_pa4tr"]
+[ext_resource type="Script" path="res://PlanetGravity.gd" id="2_17ujw"]
+[ext_resource type="Texture2D" uid="uid://dsmnknnsaojko" path="res://white_circle.png" id="2_db7kl"]
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="3_cdvcj"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xrfgs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f25wm"]
+radius = 200.0
+
+[sub_resource type="GDScript" id="GDScript_k5t31"]
+script/source = "extends RayCast2D
+
+@export var debug_enabled = false
+
+func _draw():
+	pass;
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1x81n"]
+radius = 64.0
+height = 170.0
+
+[node name="Node2D" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [-93.0]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." node_paths=PackedStringArray("character")]
+position = Vector2(509, 349)
+physics_material_override = SubResource("PhysicsMaterial_xrfgs")
+script = ExtResource("2_17ujw")
+character = NodePath("../CharacterBody2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_db7kl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, 0)
+rotation = -3.13888
+shape = SubResource("CircleShape2D_f25wm")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(121, 140)
+rotation = -0.0319169
+slide_on_ceiling = false
+script = ExtResource("3_cdvcj")
+
+[node name="RayCast2D" type="RayCast2D" parent="CharacterBody2D"]
+position = Vector2(0.999367, 0.0316162)
+scale = Vector2(0.991408, 1)
+target_position = Vector2(0, 0)
+script = SubResource("GDScript_k5t31")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_pa4tr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+scale = Vector2(0.987904, 1)
+shape = SubResource("CapsuleShape2D_1x81n")

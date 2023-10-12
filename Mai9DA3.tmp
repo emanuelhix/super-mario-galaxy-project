@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1g84nicq5ipf"]
+
+[ext_resource type="Texture2D" uid="uid://cr67ct4l5srk3" path="res://icon.svg" id="1_pa4tr"]
+[ext_resource type="Script" path="res://PlanetGravity.gd" id="2_17ujw"]
+[ext_resource type="Texture2D" uid="uid://dsmnknnsaojko" path="res://white_circle.png" id="2_db7kl"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1x81n"]
+radius = 64.0
+height = 170.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xrfgs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vhqos"]
+radius = 227.706
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(298, 287)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_pa4tr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+scale = Vector2(0.987904, 1)
+shape = SubResource("CapsuleShape2D_1x81n")
+
+[node name="RayCast2D" type="RayCast2D" parent="CharacterBody2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." node_paths=PackedStringArray("character")]
+position = Vector2(423, -31)
+physics_material_override = SubResource("PhysicsMaterial_xrfgs")
+script = ExtResource("2_17ujw")
+character = NodePath("../CharacterBody2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_db7kl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_vhqos")
